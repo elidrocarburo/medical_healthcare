@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medical_healthcare/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextButton(
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => SignUpScreen()
+                    builder: (context) => SignUpScreen(),
                     ));
                   }, 
                   child: Text(
