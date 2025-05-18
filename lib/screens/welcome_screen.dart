@@ -50,6 +50,55 @@ class WelcomeScreen extends StatelessWidget{
                 fontWeight: FontWeight.w500,
               ),
               ),
+              SizedBox(height: 60),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Material(
+                    color: Color(0xFF7165D6),
+                    borderRadius: BorderRadius.circular(10),
+                    child: InkWell(
+                      onTap: (){
+                        //Navigator.push(context, MaterialPageRoute(
+                        // builder: (context) =>
+                        //));
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15, 
+                          horizontal: 40),
+                        child: Text("Log In", style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold
+                        ),),
+                        ),
+                    ),
+                  ),
+                  Material(
+                    color: Color(0xFF7165D6),
+                    borderRadius: BorderRadius.circular(10),
+                    child: InkWell(
+                      onTap: (){
+                        //Navigator.push(context, MaterialPageRoute(
+                        // builder: (context) =>
+                        //));
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15, 
+                          horizontal: 40),
+                        child: Text("Sign Up", style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold
+                        ),),
+                        ),
+                    ),
+                  ),
+
+                ],
+              ),
           ],
         ),
       ),
