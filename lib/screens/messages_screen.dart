@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medical_healthcare/screens/chat_screen.dart';
 
 class MessagesScreen extends StatelessWidget {
 
