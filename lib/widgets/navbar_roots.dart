@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_healthcare/screens/home_screen.dart';
+import 'package:medical_healthcare/screens/schedule_screen.dart';
 import 'package:medical_healthcare/screens/settings_screen.dart';
 
 class NavbarRoots extends StatefulWidget{
@@ -17,7 +18,7 @@ class _NavbarRootsState extends State<NavbarRoots> {
     // Messages Screen
     Container(),
     // Schedule Screen
-    Container(),
+    ScheduleScreen(),
     // Settings Screen
     SettingsScreen(),
   ];
