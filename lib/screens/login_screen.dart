@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_healthcare/screens/signup_screen.dart';
 
+//pantalla para iniciar sesión, creado en un widget dinámico ya que cambiará cada que ingresemos un dato
+
 class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -9,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  //este nos ayudará en la parte de la contraseña
   bool passToggle = true;
   @override
   Widget build(BuildContext context) {
@@ -17,12 +20,14 @@ class _LoginScreenState extends State<LoginScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            //pondremos la misma imagen que en la pantalla de bienvenida
             SizedBox(height: 35),
             Padding(padding: EdgeInsets.all(20),
             child: Image.asset("images/doctors.png"),
             ),
             SizedBox(height: 10),
             Padding(padding: EdgeInsets.all(12),
+            //crearemos una caja donde uno pondrá su usuario
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -32,6 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             ),
             Padding(padding: EdgeInsets.all(12),
+            //crearemos otro donde se pondrá la contraseña
+            //el passtoggle lo que hace es que a la hora de poner nuestra contraseña nos permita ocultarla o visualizarla mientras la escribimos
             child: TextField(
               obscureText: passToggle ? true : false,
               decoration: InputDecoration(
@@ -50,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       
                     });
                   },
+                  //esta responderá cuando hagamos clic al ícono del ojo y dependiendo de cómo se encuentre, esta se verá o no
                   child: passToggle 
                   ? Icon(CupertinoIcons.eye_slash_fill) 
                   : Icon(CupertinoIcons.eye_fill),
@@ -61,10 +69,12 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: SizedBox(
+                //botón para iniciar sesión con una cuenta
                 width: double.infinity,
                 child: Material(
                         color: Color(0xFF7165D6),
                         borderRadius: BorderRadius.circular(10),
+                        //este no es un botón funcional
                         child: InkWell(
                           onTap: (){
                             //Navigator.push(context, MaterialPageRoute(
@@ -100,6 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 ),
                 TextButton(
+                  //este texto de create account nos redirigirá a la pestaña de registrar una cuenta
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(
                     builder: (context) => SignUpScreen(),

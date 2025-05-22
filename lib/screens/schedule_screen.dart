@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_healthcare/widgets/upcoming_schedule.dart';
 
+//clase donde irá nuestra pantalla de nuestro horario de citas: las siguientes en venir, las completadas y las que están canceladas
+
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});
 
@@ -11,6 +13,7 @@ class ScheduleScreen extends StatefulWidget {
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
   
+  //este índice nos ayudará a saber en qué pestaña estamos y que nos despliegue las citas que tengamos en una de las tres secciones
   int _buttonIndex = 0;
 
   final _scheduleWidgets = [
@@ -27,6 +30,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      //texto superior que nos ayuda a saber en qué sección estamos
       child: Padding(
         padding: EdgeInsets.only(top: 40),
         child: Column(
@@ -42,6 +46,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 ),
               ),
               ),
+
+              //nuestros botones para elegir qué citas queremos ver (las próximas, las completadas y las canceladas)
               SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.all(5),
@@ -55,12 +61,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   children: [
                     InkWell(
                       onTap: (){
+                        //dependiendo de la que toquemos, nos desplazará de pantalla: si estamos en la de próximas citas, nos mostrará las citas de esa sección
                         setState(() {
                           _buttonIndex = 0;
                         });
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                        //esto es puramente estético, ya que dependiendo de la sección en la que nosotros estemos, su recuadro estará resaltado
+                        //mientras que los otros dos estarán de otro color
+                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 0 ? Color(0xFF7165D6) : Colors.transparent,
                           borderRadius: BorderRadius.circular(10)
@@ -82,7 +91,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 1 ? Color(0xFF7165D6) : Colors.transparent,
                           borderRadius: BorderRadius.circular(10)
@@ -104,7 +113,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 2 ? Color(0xFF7165D6) : Colors.transparent,
                           borderRadius: BorderRadius.circular(10)

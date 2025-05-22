@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_healthcare/screens/login_screen.dart';
 
+
+//similar al anterior de log in, lo único que cambia es el número de campos a llenar
+//misma función: si tenemos cuenta, nos redirige a la pestaña de iniciar sesión
+
 class SignUpScreen extends StatefulWidget{
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();

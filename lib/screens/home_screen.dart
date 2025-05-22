@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:medical_healthcare/screens/appointment_screen.dart';
 
+//siguiente ventana luego de iniciar sesión/registrarse/saltarse la pantalla de bienvenida
+
 class HomeScreen extends StatelessWidget{
 
+  //ponemos lista de los síntomas
   List symptoms = [
-    "Temerature",
+    "Temperature",
     "Snuffle",
     "Fever",
     "Cough",
     "Cold"
   ];
 
+  //lista de imágenes que nos estará sirviendo
   List imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
@@ -25,6 +29,7 @@ class HomeScreen extends StatelessWidget{
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //crear la barra superior con el texto y el ícono
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Row(
@@ -44,6 +49,7 @@ class HomeScreen extends StatelessWidget{
               ],
             ),
             ),
+            //crear recuadros no funcionales para crear una cita en una clínica o llamar un doctor para agendar cita en casa
             SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,6 +62,7 @@ class HomeScreen extends StatelessWidget{
                       color: Color(0xFF7165D6),
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
+                        //BoxShadow es una librería que permite agregar sombreado a un elemento
                         BoxShadow(
                           color: Colors.black12,
                           blurRadius: 6,
@@ -148,6 +155,7 @@ class HomeScreen extends StatelessWidget{
                 ),
               ],
             ),
+            //texto que pregunta los síntomas que uno tiene
             SizedBox(height: 25),
             Padding(
               padding: EdgeInsets.only(left: 15),
@@ -159,6 +167,7 @@ class HomeScreen extends StatelessWidget{
               ),
               ),
             ),
+            //listado de los síntomas, este se puede deslizar para visualizar los que hayan, tomando los de la lista del inicio
             SizedBox(height: 70,
             child: ListView.builder(
               shrinkWrap: true,
@@ -192,6 +201,8 @@ class HomeScreen extends StatelessWidget{
                 );
               },),
             ),
+
+            //lista de los diversos doctores que hay
             SizedBox(height: 15),
             Padding(
               padding: EdgeInsets.only(left: 15),
@@ -204,6 +215,7 @@ class HomeScreen extends StatelessWidget{
                 ),
               ),
               ),
+              //nos ayuda a crear nuestra cuadrícula con n elementos para colocar la información de los doctores populares
               GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2),
@@ -212,11 +224,14 @@ class HomeScreen extends StatelessWidget{
                 physics: NeverScrollableScrollPhysics(), 
                 itemBuilder: (context, index) {
                   return InkWell(
+                    //cada que presionemos uno de los recuadros nos llevará a una ventana con información más detallada
+                    //y en base a eso sacar una cita con un doctor
                     onTap: (){
                       Navigator.push(
                         context, MaterialPageRoute(
                           builder: (context) => AppointmentScreen(),));
                     },
+                    //crear el recuadro con su sombra
                     child: Container(
                       margin: EdgeInsets.all(10),
                       padding: EdgeInsets.symmetric(vertical: 15),
@@ -231,6 +246,8 @@ class HomeScreen extends StatelessWidget{
                           )
                         ]
                       ),
+                      //colocar las imágenes con ayuda de la lista de imágenes creada al inicio
+                      //junto a la información de nombre, especialidad y valoración
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_healthcare/screens/chat_screen.dart';
 
+//sección de mensajería con los doctores de la aplicación
+
 class MessagesScreen extends StatelessWidget {
 
   List imgs = [
@@ -19,6 +21,7 @@ class MessagesScreen extends StatelessWidget {
     
 
     return SingleChildScrollView(
+      //texto superior para indicar en qué sección estás
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,6 +36,8 @@ class MessagesScreen extends StatelessWidget {
               ),
             ),
             ),
+
+            //barra de búsqueda del chat
             SizedBox(height: 30),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -49,11 +54,13 @@ class MessagesScreen extends StatelessWidget {
                     )
                   ]
                 ),
+                //al tratarse de un formulario, usaremos el textformfield para poder introducir texto
+                //y de igual manera decorarlo para que tenga un texto y un ícono de búsqueda
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 300,
+                      width: 260,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 15),
                         child: TextFormField(
@@ -72,6 +79,8 @@ class MessagesScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            //texto para los doctores que están activos
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -85,12 +94,14 @@ class MessagesScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
             SizedBox(height: 90,
+            //listado de los doctores que andan activos, el cual se puede deslizar para ver los demás que hayan
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 6,
               shrinkWrap: true,
               itemBuilder: (context, index){
               return Container(
+                //nos genera un círculo, el cual tendrá un sombreado
                 margin: EdgeInsets.symmetric(horizontal: 12),
                 width: 65,
                 height: 65,
@@ -105,8 +116,9 @@ class MessagesScreen extends StatelessWidget {
                     )
                   ]
                 ),
+                //stack ya que pondremos la burbuja de que están conectados encima del icono del doctor
                 child: Stack(
-                  textDirection: TextDirection.rtl,
+                  textDirection: TextDirection.rtl, //la dirección en la que irá nuestro texto
                   children: [
                     Center(
                       child: Container(
@@ -121,6 +133,7 @@ class MessagesScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    //burbuja de conectado
                     Container(
                       margin: EdgeInsets.all(4),
                       padding: EdgeInsets.all(3),
@@ -142,6 +155,8 @@ class MessagesScreen extends StatelessWidget {
               );
             }),
             ),
+
+            //texto para los chats recientes
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -153,6 +168,7 @@ class MessagesScreen extends StatelessWidget {
                 ),
               ),
             ),
+            //nuestro listado de chats recientes
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               itemCount: 6,
@@ -163,8 +179,10 @@ class MessagesScreen extends StatelessWidget {
                 child: ListTile(
                   minVerticalPadding: 15,
                   onTap: (){
+                    //este nos ayudará a mandarnos al chatscreen cuando presionemos uno de los chats
                     Navigator.push(context, MaterialPageRoute(builder: (context) => ChatScreen(),));
                   },
+                  //icono del doctor junto con la información básica: nombre, mostrar previsualización del mensaje y hora
                   leading: CircleAvatar(
                     radius: 30,
                     backgroundImage: AssetImage(
@@ -181,7 +199,7 @@ class MessagesScreen extends StatelessWidget {
                   subtitle: Text(
                     "Hello, Doctor are you there?",
                     maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    overflow: TextOverflow.ellipsis, //textoverflow: ayuda a saber cuánto texto puede mostrarse
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54

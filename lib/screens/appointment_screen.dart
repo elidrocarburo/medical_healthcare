@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+//pantalla para sacar citas con el doctor
+
 class AppointmentScreen extends StatelessWidget{
   List imgs = [
     "doctor1.jpg",
@@ -12,6 +14,8 @@ class AppointmentScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //nos crea un fondo, donde irá los botones para ir hacia atrás, opciones y la información básica del doctor
+      //junto con iconos para mandar mensaje o llamarle
       backgroundColor: Color(0xFF7165D6),
       body: SingleChildScrollView(
         child: Column(
@@ -44,6 +48,7 @@ class AppointmentScreen extends StatelessWidget{
                       ),
                     ],
                   ),
+                  //pone la información y el ícono del doctor con el que queremos sacar cita
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child: Column(
@@ -65,6 +70,8 @@ class AppointmentScreen extends StatelessWidget{
                           color: Colors.white,
                           fontWeight: FontWeight.bold
                         ),),
+
+                        //creación de los dos íconos
                         SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -102,6 +109,8 @@ class AppointmentScreen extends StatelessWidget{
                 ],
               ),
               ),
+
+              //se crea un recuadro blanco donde irá la información más detallada del doctor
               SizedBox(height: 25),
                     Container(
                       height: MediaQuery.of(context).size.height / 1.5,
@@ -163,7 +172,7 @@ class AppointmentScreen extends StatelessWidget{
                                   color: Color(0xFF7165D6)
                                 ),
                               ),
-                              Spacer(),
+                              Spacer(), //espacio vacío entre widgets, para separar la fila de valoraciones y el de "ver todo"
                               TextButton(
                                 onPressed: (){}, 
                                 child: Text(
@@ -177,8 +186,11 @@ class AppointmentScreen extends StatelessWidget{
                               ),
                             ],
                           ),
+                          //listado de las reviews del doctor, los cuales irán con la información de quién lo manda
+                          //cuánto de calificación le puso y un comentario
                           SizedBox(
                             height: 160,
+                            //creación de los recuadros
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: 4,
@@ -197,6 +209,7 @@ class AppointmentScreen extends StatelessWidget{
                                       )
                                     ]
                                   ),
+                                  //relleno de los recuadros
                                   child: SizedBox(
                                     width: MediaQuery.of(context).size.width / 1.4,
                                     child: Column(
@@ -247,6 +260,8 @@ class AppointmentScreen extends StatelessWidget{
                                 );
                               }),
                           ),
+
+                          //información de dónde se encuentra el doctor
                           SizedBox(height: 10),
                           Text(
                             "Location",
@@ -255,6 +270,9 @@ class AppointmentScreen extends StatelessWidget{
                               fontWeight: FontWeight.w500
                             ),
                           ),
+                          //el listtile lo que hará es generar un recuadro en el cual podremos poner un ícono de un lado
+                          //y del otro lado poner texto
+                          //nos servirá para un ícono de localización y otro para el texto de dónde se encuentra
                           ListTile(
                             leading: Container(
                               padding: EdgeInsets.all(10),
@@ -284,7 +302,10 @@ class AppointmentScreen extends StatelessWidget{
           ],
         ),
       ),
+
+      //nuestra barra inferior donde pondremos la información del precio de la consulta y el botón para agendar una cita
       bottomNavigationBar: Container(
+        //recuadro donde pondremos todos los elementos
         padding: EdgeInsets.all(15),
         height: 130,
         decoration: BoxDecoration(
@@ -298,6 +319,7 @@ class AppointmentScreen extends StatelessWidget{
           ]
         ),
         child: Column(
+          //texto del precio de consulta junto con el precio
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -318,6 +340,8 @@ class AppointmentScreen extends StatelessWidget{
                 )
               ],
             ),
+
+            //creación de nuestro botón no funcional para agendar una cita
             SizedBox(height: 15),
             InkWell(
               onTap: (){},
